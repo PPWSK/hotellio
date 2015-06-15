@@ -1,2 +1,19 @@
-<h1>Accommodations#show</h1>
-<p>Find me in app/views/accommodations/show.html.erb</p>
+<%= link_to "back", accommodations_path %><br><br>
+
+<h2><%= @accommodation.title %></h2>
+<% @accommodation.picture.each do |p| %>
+ <%= image_tag  p.file.url(:medium) %>
+<% end %>
+
+<h4>has:</h4>
+
+<ul>
+
+<li><%= @accommodation.description %></li>
+<li><%= @accommodation.price %></li>
+<li><%= @accommodation.type %></li>
+<li><%= @accommodation.gues_number %></li>
+
+</ul><br>
+
+<%= link_to "add a picture", new_accommodation_picture_path(@accommodation) %>
