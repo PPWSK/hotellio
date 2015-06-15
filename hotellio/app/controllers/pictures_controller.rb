@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
 
-  before_action :find_accommodation, only: [:create, :destroy]
+  before_action :find_accommodation, only: [:create, :new, :destroy]
 
   def show
     @picture = Picture.find(params[:id])

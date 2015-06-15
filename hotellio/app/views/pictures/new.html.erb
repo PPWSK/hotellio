@@ -1,2 +1,11 @@
-<h1>Pictures#new</h1>
-<p>Find me in app/views/pictures/new.html.erb</p>
+<%= simple_form_for([@accommodation, @picture], html: { multipart: true }) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :caption, required: false %>
+  <p>
+    <%= f.label :type %>
+    <%= f.file_field :type %>
+  </p>
+
+  <%= f.button :submit %>
+<% end %>
