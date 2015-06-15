@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   resources :accommodations, only: [ :index, :show, :new, :create ] do
     resources :reviews, only: [ :new, :create, :show, :index ]
-    resources :pictures, only: [ :show, :new, :create, :destroy ]
+    resources :pictures, only: [ :new, :create, :show, :destroy ]
   end
-
-  resources :pictures, only: [ :destroy ]
 
   root to: 'accommodations#index'
 
