@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150615140816) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "caption"
+    t.integer  "accommodation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "file_file_name"
@@ -36,11 +37,16 @@ ActiveRecord::Schema.define(version: 20150615140816) do
     t.datetime "file_updated_at"
   end
 
+  add_index "pictures", ["accommodation_id"], name: "index_pictures_on_accommodation_id", using: :btree
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "accommodation_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "reviews", ["accommodation_id"], name: "index_reviews_on_accommodation_id", using: :btree
 
 end

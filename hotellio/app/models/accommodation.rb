@@ -1,4 +1,5 @@
 class Accommodation < ActiveRecord::Base
+  self.inheritance_column = nil
   has_many :reviews, dependent: :destroy
   has_many :pictures, dependent: :destroy
 
