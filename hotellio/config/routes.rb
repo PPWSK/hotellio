@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  get 'pictures/new'
+
+  get 'pictures/create'
+
+  get 'pictures/destroy'
+
+  get 'pictures/show'
+
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'reviews/show'
+
+  get 'reviews/index'
+
+  get 'accommodations/new'
+
+  get 'accommodations/create'
+
+  get 'accommodations/show'
+
+  get 'accommodations/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
