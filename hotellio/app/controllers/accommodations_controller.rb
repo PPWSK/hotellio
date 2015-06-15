@@ -14,7 +14,7 @@ class AccommodationsController < ApplicationController
   def create
     @accommodation = Accommodation.create(accommodation_params)
       if @accommodation.save
-        redirect_to accommodation_show_path(@accommodation)
+        redirect_to accommodation_path(@accommodation)
       else
         render :new
       end

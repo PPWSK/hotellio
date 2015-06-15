@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :find_accommodation, only: [:create]
+  before_action :find_accommodation, only: [:create, :new]
 
   def index
     @reviews = Review.all
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   def create
     @review = @accommodation.reviews.build(review_params)
     if @review.save
-      redirect_to accommodation_show_path(@review)
+      redirect_to accommodation_path(@review)
     else
       render :new
     end
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :description)
+    params.require(:review).permit(:rating, :description, :accommodation_id)
   end
 
   def find_accommodation

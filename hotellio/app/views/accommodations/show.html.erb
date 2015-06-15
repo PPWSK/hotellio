@@ -1,9 +1,6 @@
 <%= link_to "back", accommodations_path %><br><br>
 
 <h2><%= @accommodation.title %></h2>
-<% @accommodation.picture.each do |p| %>
- <%= image_tag  p.file.url(:medium) %>
-<% end %>
 
 <h4>has:</h4>
 
@@ -12,8 +9,16 @@
 <li><%= @accommodation.description %></li>
 <li><%= @accommodation.price %></li>
 <li><%= @accommodation.type %></li>
-<li><%= @accommodation.gues_number %></li>
+<li><%= @accommodation.guest_number %></li>
 
 </ul><br>
 
-<%= link_to "add a picture", new_accommodation_picture_path(@accommodation) %>
+<h4>reviews:</h4>
+
+<ul>
+<% @accommodation.reviews.each do |ar| %>
+<li><% ar.rating.times do |x| %>*<% end %> <%= ar.description %></li>
+<% end %>
+</ul>
+
+<%= link_to "rate the place", new_accommodation_review_path(@accommodation) %>
