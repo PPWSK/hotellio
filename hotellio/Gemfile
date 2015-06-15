@@ -32,6 +32,28 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# -------------- OTELLIO PROJECT SPECIFIC
+# ---------------------------------------
+
+# gems related to heroku for production
+ruby '2.2.2'
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
+
+# gems related to css and style
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'simple_form'
+
+# security related to buckets
+gem 'figaro'
+
+# file attachment for activeRecord
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
+
+gem 'geocoder'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
