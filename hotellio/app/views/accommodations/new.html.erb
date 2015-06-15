@@ -1,2 +1,42 @@
-<h1>Accommodations#new</h1>
-<p>Find me in app/views/accommodations/new.html.erb</p>
+<div>
+  <h1 class="text-center">List a new accommodation:</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= simple_form_for(accommodations_create_path, html: { class: 'form-horizontal' }) do |f| %>
+          <div>
+            <fieldset>
+              <%= f.label :title %>:
+              <%= f.text_field :title %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :description %>:
+              <%= f.text_field :description %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :price %>:
+              <%= f.text_field :price %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :type %>:
+              <%= f.text_field :type %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :guest_number %>:
+              <%= f.text_field :guest_number %><br />
+           </fieldset>
+          </div>
+          <%= f.submit "List your accommodation" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
