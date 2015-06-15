@@ -1,7 +1,7 @@
 <h1>List of accommodations</h1>
 
 <% @accommodations.each do |a| %>
-  <%= image_tag a.picture.file.url(:thumb) %>
+  <%= image_tag a.picture[0].file.url(:thumb) %>
   <%= link_to a.title + " (" + a.description + ")", accommodation_path(a) %><br>
 <% end %><br>
 
