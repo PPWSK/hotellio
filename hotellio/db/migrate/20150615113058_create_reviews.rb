@@ -3,6 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.integer :rating
       t.text :description
+      t.references :accommodation, index: true
 
       t.timestamps null: false
     end
