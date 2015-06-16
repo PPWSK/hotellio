@@ -7,5 +7,9 @@ class Accommodation < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :type, inclusion: { in: ["entire flat/house", "private room", "shared room"] }
   # todo validates :pictures, presence: true number?
+
+  def self.search(search_query)
+    where(guest_number: search_query.number_rooms)
+  end
 end
 

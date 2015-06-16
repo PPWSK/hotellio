@@ -1,16 +1,22 @@
+<h1>our search box</h1>
+
+<%= simple_form_for(@search, url:accommodations_path, method:'get') do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :location %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :number_rooms, required: true %>
+
+  <%= f.button :submit %>
+<% end %>
+
+
 <h1>List of accommodations</h1>
 
 <% @accommodations.each do |a| %>
 
-  <%= link_to a.title + " (" + a.description + ")", accommodation_path(a) %><br>
+  <%= link_to a.title + " (" + a.guest_number.to_s + ")", accommodation_path(a) %><br>
 <% end %><br>
 
 <%= link_to "Create new Accommodation", new_accommodation_path %>
-
-<% if account_signed_in? %>
-  Hello <%= current_account.email %>!
-  <%= link_to 'Sign out', destroy_account_session_path, method: 'delete', class: "btn btn-danger" %>
-<% else %>
-  <%= link_to 'Sign up', new_account_registration_path, class: "btn btn-primary" %>
-  <%= link_to 'Sign in', new_account_session_path, class: "btn btn-success" %>
-<% end %>
