@@ -1,9 +1,7 @@
 <%= simple_form_for([@accommodation, @picture], html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :caption, required: false %>
   <p>
-    <%= f.label :file %>
     <%= f.file_field :file %>
   </p>
 
