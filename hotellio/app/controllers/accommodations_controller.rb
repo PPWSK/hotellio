@@ -1,6 +1,20 @@
 class AccommodationsController < ApplicationController
+
+  skip_before_action :authenticate_account!
+
   def index
-    @accommodations = Accommodation.all
+    if params[:search]
+      @search = Search.new(params[:search])
+      if @search.valid?
+        @accommodations = Accommodation.search(@search)
+        #searchengine...
+      else
+        @accommodations = []
+      end
+    else
+      @accommodations = Accommodation.all
+      @search = Search.new
+    end
   end
 
   def show
@@ -25,4 +39,5 @@ class AccommodationsController < ApplicationController
   def accommodation_params
     params.require(:accommodation).permit(:title, :description, :price, :type, :guest_number)
   end
+
 end

@@ -1,8 +1,22 @@
+<h1>our search box</h1>
+
+<%= simple_form_for(@search, url:accommodations_path, method:'get') do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :location %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :number_rooms, required: true %>
+
+  <%= f.button :submit %>
+<% end %>
+
+
 <h1>List of accommodations</h1>
 
 <% @accommodations.each do |a| %>
 
-  <%= link_to a.title + " (" + a.description + ")", accommodation_path(a) %><br>
+  <%= link_to a.title + " (" + a.guest_number.to_s + ")", accommodation_path(a) %><br>
 <% end %><br>
 
 <%= link_to "Create new Accommodation", new_accommodation_path %>
