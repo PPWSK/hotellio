@@ -1,4 +1,7 @@
 class AccommodationsController < ApplicationController
+
+  skip_before_action :authenticate_user!
+
   def index
     @accommodations = Accommodation.all
   end

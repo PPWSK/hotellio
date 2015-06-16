@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :accounts
   resources :accommodations, only: [ :index, :show, :new, :create ] do
     resources :reviews, only: [ :new, :create, :show, :index ]
     resources :pictures, only: [ :new, :create, :show, :destroy ]
