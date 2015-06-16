@@ -1,1 +1,87 @@
-// Your footer style
+.footer{
+  background-image: url("Otellio-footer1-bg.jpg");
+  height: 300px;
+  position: absolute;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.footer img {
+  max-width: 100%;
+}
+
+.footer h3 {
+  color: #54697E;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 27px;
+
+}
+
+.footer ul {
+  font-size: 12px;
+  list-style-type: none;
+  color: #7F8C8D;
+  padding-bottom: 15px;
+
+}
+
+.block {
+  text-align: center;
+}
+
+.footer a {
+  color: #78828D
+}
+
+.footer a:hover {
+  color: #df1e34;
+}
+
+.social {
+  padding: 50px;
+  text-align: center;
+}
+
+.social li {
+  background: none repeat scroll 0 0 #B5B5B5;
+  border: 2px solid #B5B5B5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  margin: 0 8px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 36px;
+}
+
+.social li a {
+  color: #EDEFF1;
+}
+
+.social li:hover {
+  border: 2px solid #df1e34;
+  background: #df1e34;
+}
+
+.social li a i {
+  font-size: 16px;
+  margin: 0 0 0 5px;
+  color: #EDEFF1;
+}
+
+.list-inline {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+
+
+
+
+
