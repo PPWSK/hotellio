@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:file)
+    params.require(:picture).permit(:caption, :file, :picture)
   end
 
   def find_accommodation
