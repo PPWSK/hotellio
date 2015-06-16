@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616083439) do
+ActiveRecord::Schema.define(version: 20150616144934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20150616083439) do
     t.integer  "guest_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "location"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "accounts", force: :cascade do |t|
@@ -46,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150616083439) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "caption"
+    t.integer  "accommodation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "file_file_name"
@@ -54,11 +60,16 @@ ActiveRecord::Schema.define(version: 20150616083439) do
     t.datetime "file_updated_at"
   end
 
+  add_index "pictures", ["accommodation_id"], name: "index_pictures_on_accommodation_id", using: :btree
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "accommodation_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "reviews", ["accommodation_id"], name: "index_reviews_on_accommodation_id", using: :btree
 
 end
