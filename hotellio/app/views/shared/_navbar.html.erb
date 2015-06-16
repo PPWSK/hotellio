@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <%= image_tag "logo.jpg" %>
+        <%= image_tag "logo.png" %>
       </a>
     </div>
 
@@ -18,9 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if  account_signed_in? %>
           <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
-            <% end %>
+
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
