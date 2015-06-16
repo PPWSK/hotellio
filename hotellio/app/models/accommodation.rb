@@ -6,6 +6,7 @@ class Accommodation < ActiveRecord::Base
   validates :title, :description, :price, :type, :guest_number, presence: true
   validates :title, uniqueness: true
   validates :type, inclusion: { in: ["entire flat/house", "private room", "shared room"] }
+  geocoded_by :address
   # todo validates :pictures, presence: true number?
 
   def self.search(search_query)

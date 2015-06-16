@@ -4,36 +4,17 @@
     <div class="row">
       <div class="col-sm-offset-4 col-sm-4">
         <%= simple_form_for(@accommodation, html: { class: 'form-horizontal' }) do |f| %>
-          <div>
-            <fieldset>
-              <%= f.label :title %>:
-              <%= f.text_field :title %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :description %>:
-              <%= f.text_field :description %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :price %>:
-              <%= f.text_field :price %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :type %>:
-              <%= f.text_field :type %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :guest_number %>:
-              <%= f.text_field :guest_number %><br />
-           </fieldset>
-          </div>
+
+          <%= f.input :title, label: "title" %>
+
+          <%= f.input :description, label: 'add a description' %>
+
+          <%= f.input :price, label: 'add a price' %>
+
+          <%= f.input :type, label: 'add a type' %>
+
+          <%= f.input :guest_number, label: 'add a guest number' %>
+
           <%= f.submit "List your accommodation" %>
         <% end %>
       </div>
