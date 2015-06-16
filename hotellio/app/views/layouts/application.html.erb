@@ -12,11 +12,20 @@
 </head>
 <body>
 
+
 <%= render "shared/navbar" %>
 
 <div class="container" style="margin-top:100px;">
-  <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
 </div>
+
 
 </body>
 </html>
+
+<!-- add: render 'shared/navbar' -->
+<!-- add:  render 'shared/notices' -->

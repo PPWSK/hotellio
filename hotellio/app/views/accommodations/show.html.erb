@@ -1,6 +1,10 @@
 <%= link_to "back", accommodations_path %><br><br>
 
 <h2><%= @accommodation.title %></h2>
+<% @accommodation.pictures.each do |ap| %>
+  <p><%= ap.caption %></p>
+  <p><%= image_tag ap.file.url(:thumb) %></p>
+<% end %>
 
 <h4>has:</h4>
 
@@ -21,4 +25,5 @@
 <% end %>
 </ul>
 
-<%= link_to "rate the place", new_accommodation_review_path(@accommodation) %>
+<%= link_to "rate the place", new_accommodation_review_path(@accommodation) %><br>
+<%= link_to "add a picture", new_accommodation_picture_path(@accommodation) %>

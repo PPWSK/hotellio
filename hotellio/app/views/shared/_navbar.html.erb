@@ -16,7 +16,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <% if account_signed_in? %>
+        <% if  account_signed_in? %>
           <li>
             <%= link_to "#" do %>
               <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
@@ -34,7 +34,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to accommodations_path do %>
                   <i class="fa fa-home"></i>  <%= t ".profile", default: "Flat" %>
                 <% end %>
               </li>
@@ -54,7 +54,7 @@
           </li>
         <% end %>
         <li>
-          <%= link_to t(".top_call_to_action", default: "Rent your flat"), "#", class: "btn" %>
+          <%= link_to t(".top_call_to_action", default: "Rent your flat"),  new_accommodation_path, class: "btn" %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
