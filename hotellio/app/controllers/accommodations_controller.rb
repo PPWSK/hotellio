@@ -15,11 +15,6 @@ class AccommodationsController < ApplicationController
     else
       @search_query = SearchQuery.new.with_some_defaults
       @accommodations = Accommodation.all
-      @search = SearchQuery.new
-        @markers = Gmaps4rails.build_markers(@accommodation) do |accommodation, marker|
-        marker.lat accommodation.latitude
-        marker.lng accommodation.longitude
-      end
     end
 
     # Let's DYNAMICALLY build the markers for the view.
@@ -55,7 +50,6 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodation_params
-    params.require(:accommodation).permit(:title, :description, :price, :type, :guest_number, :location, :latitude, :longitude, :start_date, :end_date)
     params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number)
   end
 

@@ -16,12 +16,9 @@
 
 //= require underscore
 //= require gmaps/google
+
 //= require jquery-ui
 //= require gmaps-auto-complete
 
-//= require_tree .
 
-$(document).ready(function() {
-  GmapsAutoComplete.init();
-  GmapsAutoComplete.autoCompleteInit();
-});
+//= require_tree .
