@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150617143009) do
     t.integer  "price"
     t.string   "type"
     t.integer  "guest_number"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.float    "latitude"
@@ -30,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150617143009) do
     t.date     "start_date"
     t.date     "end_date"
   end
+
+  add_index "accommodations", ["user_id"], name: "index_accommodations_on_user_id", using: :btree
 
   create_table "accounts", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

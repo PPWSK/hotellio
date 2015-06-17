@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :birthdate, :gender, :description, :phone_number, presence: true
   validates :phone_number, uniqueness: true
+  validates :gender, inclusion: { in: ["female", "male", "other"] }
 end
