@@ -1,7 +1,19 @@
 <h1>our search box</h1>
 
-<%= simple_form_for(@search, url:accommodations_path, method:'get') do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@search_query, method: 'get', url:accommodations_path) do |f| %>
+
+  <% if @search_query.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@search_query.errors.count, "error") %> prohibited this search query from being performed:
+      </h2>
+      <ul>
+        <% @search_query.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= f.input :location %>
   <%= f.input :start_date %>
@@ -19,6 +31,7 @@
   <%= link_to a.title + " (" + a.guest_number.to_s + ")", accommodation_path(a) %><br>
 <% end %><br>
 
+<<<<<<< HEAD
 <%= link_to "Create new Accommodation", new_accommodation_path %>
 
 <% content_for(:js) do %>
@@ -27,9 +40,26 @@
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw@search.to_json %>);
+=======
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+>>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       });
     })
+<<<<<<< HEAD
   </script>
 <% end %>
+=======
+  <% end %>
+<% end %>
+
+
+>>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
