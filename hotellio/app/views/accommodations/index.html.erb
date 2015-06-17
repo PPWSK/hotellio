@@ -1,7 +1,19 @@
 <h1>our search box</h1>
 
-<%= simple_form_for(@search, url:accommodations_path, method:'get') do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@search_query, method: 'get', url:accommodations_path) do |f| %>
+
+  <% if @search_query.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@search_query.errors.count, "error") %> prohibited this search query from being performed:
+      </h2>
+      <ul>
+        <% @search_query.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= f.input :location %>
   <%= f.input :start_date %>

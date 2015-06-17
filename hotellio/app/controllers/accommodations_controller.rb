@@ -3,17 +3,18 @@ class AccommodationsController < ApplicationController
   skip_before_action :authenticate_account!
 
   def index
-    if params[:search]
-      @search = Search.new(params[:search])
-      if @search.valid?
-        @accommodations = Accommodation.search(@search)
-        #searchengine...
+    if params[:search_query]
+      @search_query = SearchQuery.new(params[:search_query])
+      if @search_query.valid?
+        # search is valid, searchenginge?
+        @accommodations = Accommodation.search(@search_query)
       else
+        # search is invalid, no results
         @accommodations = []
       end
     else
+      @search_query = SearchQuery.new.with_some_defaults
       @accommodations = Accommodation.all
-      @search = Search.new
     end
   end
 
