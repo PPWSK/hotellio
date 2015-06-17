@@ -8,6 +8,7 @@ class SearchQuery
 
   validates :number_rooms, numericality: true
   validates :number_rooms, presence: true
+  validates :location, presence: true
 
   def start_date=(new_date)
     @start_date = Date.parse(new_date)
