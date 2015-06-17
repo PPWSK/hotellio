@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'  # Add this at line 2
 
-
-source 'https://rails-assets.org'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -61,19 +58,12 @@ gem 'paperclip'
 gem 'geocoder'
 gem "gmaps4rails"
 gem "rails-assets-underscore"
-# for maps and geocoding
-gem 'geocoder'
-gem 'gmaps4rails'
-gem 'rails-assets-underscore'
+
 
 # for authentication
 gem 'devise'
 
-<<<<<<< HEAD
-# for autocomplete
-=======
-# maps autocomplete
->>>>>>> 8012592f9f08dd90f63bdf1cd7f71e618601f62e
+# maps for autcomplete
 gem 'gmaps-autocomplete-rails'
 
 group :development, :test do

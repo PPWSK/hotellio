@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20150616144934) do
   add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
 
   create_table "pictures", force: :cascade do |t|
-    t.string   "caption"
     t.integer  "accommodation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

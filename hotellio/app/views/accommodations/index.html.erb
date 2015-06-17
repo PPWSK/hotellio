@@ -31,14 +31,6 @@
   <%= link_to a.title + " (" + a.guest_number.to_s + ")", accommodation_path(a) %><br>
 <% end %><br>
 
-<%= link_to "Create new Accommodation", new_accommodation_path %>
-
-<% content_for(:js) do %>
-  <script type="text/javascript">
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw@search.to_json %>);
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
@@ -51,8 +43,6 @@
         handler.fitMapToBounds();
       });
     })
-  </script>
-<% end %>
   <% end %>
 <% end %>
 
