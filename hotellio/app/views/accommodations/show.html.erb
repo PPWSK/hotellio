@@ -17,14 +17,12 @@
 
 </ul><br>
 
-<<<<<<< HEAD
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
       var coord = <%= raw @accommodation_coordinates %>;
       alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
     });
-=======
 <div id="map" style="width: 100%; height: 150px;"></div>
 
 <% content_for(:after_js) do %>
@@ -37,7 +35,6 @@
         handler.fitMapToBounds();
       });
     })
->>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
   <% end %>
 <% end %>
 

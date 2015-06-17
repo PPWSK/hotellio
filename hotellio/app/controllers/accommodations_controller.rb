@@ -15,34 +15,28 @@ class AccommodationsController < ApplicationController
     else
       @search_query = SearchQuery.new.with_some_defaults
       @accommodations = Accommodation.all
-<<<<<<< HEAD
-      @search = Search.new
+      @search = SearchQuery.new
         @markers = Gmaps4rails.build_markers(@accommodation) do |accommodation, marker|
         marker.lat accommodation.latitude
         marker.lng accommodation.longitude
       end
-=======
     end
 
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@accommodations) do |acco, marker|
       marker.lat acco.latitude
       marker.lng acco.longitude
->>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
     end
   end
 
   def show
     @accommodation = Accommodation.find(params[:id])
     @accommodation_coordinates = { lat: @accommodation.latitude, lng: @accommodation.longitude }
-<<<<<<< HEAD
-=======
 
     @markers = Gmaps4rails.build_markers(@accommodation) do |acco, marker|
       marker.lat acco.latitude
       marker.lng acco.longitude
     end
->>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
   end
 
   def new
@@ -61,11 +55,8 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodation_params
-<<<<<<< HEAD
     params.require(:accommodation).permit(:title, :description, :price, :type, :guest_number, :location, :latitude, :longitude, :start_date, :end_date)
-=======
     params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number)
->>>>>>> a60c6ae941a687f6ca3e99e7e867f9405316edd7
   end
 
 end
