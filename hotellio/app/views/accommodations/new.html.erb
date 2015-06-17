@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-sm-offset-4 col-sm-4">
         <%= simple_form_for(@accommodation, html: { class: 'form-horizontal' }) do |f| %>
+<<<<<<< HEAD
           <div>
             <fieldset>
               <%= f.label :title %>:
@@ -53,6 +54,16 @@
            </fieldset>
           </div>
           <%= f.submit "Create your accommodation" %>
+=======
+
+          <%= f.input :title, label: "give it a name" %>
+          <%= f.input :description, label: 'add a description' %>
+          <%= f.input :price, label: 'add a price' %>
+          <%= f.input :type, collection: ["entire flat/house", "private room", "shared room"], label: 'add a type' %>
+          <%= f.input :guest_number, label: 'how many people can it host?' %>
+          <%= f.submit "List your accommodation" %>
+
+>>>>>>> d1346270c4270f99a8a835470e08c946d360237b
         <% end %>
       </div>
     </div>
