@@ -69,7 +69,11 @@ gem 'rails-assets-underscore'
 # for authentication
 gem 'devise'
 
+<<<<<<< HEAD
 # for autocomplete
+=======
+# maps autocomplete
+>>>>>>> 8012592f9f08dd90f63bdf1cd7f71e618601f62e
 gem 'gmaps-autocomplete-rails'
 
 group :development, :test do
