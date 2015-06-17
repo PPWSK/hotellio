@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :pictures, only: [ :new, :create, :show, :destroy ]
   end
 
+  resources :users, except: [ :index, :destroy ]
+
   root to: 'accommodations#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

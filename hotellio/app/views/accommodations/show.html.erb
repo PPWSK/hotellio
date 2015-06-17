@@ -2,7 +2,6 @@
 
 <h2><%= @accommodation.title %></h2>
 <% @accommodation.pictures.each do |ap| %>
-  <p><%= ap.caption %></p>
   <p><%= image_tag ap.file.url(:thumb) %></p>
 <% end %>
 
