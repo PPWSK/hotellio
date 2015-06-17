@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :accounts
+  devise_for :accounts, :controllers => { :registrations => "registrations" }
   resources :accommodations, only: [ :index, :show, :new, :create ] do
     resources :reviews, only: [ :new, :create, :show, :index ]
     resources :pictures, only: [ :new, :create, :show, :destroy ]
   end
 
   resources :users, except: [ :index, :destroy ]
+
+  # namespace :account do
+  #   root :to => "user#new"
+  # end
 
   root to: 'accommodations#index'
 
