@@ -7,6 +7,8 @@ class CreateAccommodations < ActiveRecord::Migration
       t.string :type
       t.integer :guest_number
 
+      t.references :user, index: true
+
       t.timestamps null: false
     end
   end
