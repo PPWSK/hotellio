@@ -11,8 +11,4 @@ Accommodation.create(title: "new-york", description: "beautifull place", price: 
 Accommodation.create(title: "brussels", description: "Place to be", price: "50", type: "shared room", guest_number:"7")
 Accommodation.create(title: "japan", description: "i don't know", price: "154", type: "private room", guest_number:"1")
 Accommodation.create(title: "Vietnam", description: "zsvedgsdfwgqbv", price: "458", type: "shared room", guest_number:"12")
-Accommodation.create(title: "Paris", description: "Finally", price: "12", type: "private room", guest_number:"6")
-<<<<<<< HEAD
-Accommodation.create(title: "Wagon", location: "5 Place Sainte-Gudule 1000 Bruxelles")
-=======
->>>>>>> d1346270c4270f99a8a835470e08c946d360237b
+Accommodation.create(title: "Wagon", description: "Finally", price: "12", type: "private room", guest_number:"6", location: "5 Place Sainte-Gudule 1000 Bruxelles")
