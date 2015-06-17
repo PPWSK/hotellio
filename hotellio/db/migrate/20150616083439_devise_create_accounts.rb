@@ -1,6 +1,9 @@
 class DeviseCreateAccounts < ActiveRecord::Migration
   def change
     create_table(:accounts) do |t|
+
+      t.belongs_to :user, index: true
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
