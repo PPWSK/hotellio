@@ -1,5 +1,5 @@
 <div>
-  <h1 class="text-center">List a new accommodation:</h1>
+  <h1 class="text-center">Create a new accommodation:</h1>
   <div class="container">
     <div class="row">
       <div class="col-sm-offset-4 col-sm-4">
@@ -34,7 +34,25 @@
               <%= f.text_field :guest_number %><br />
            </fieldset>
           </div>
-          <%= f.submit "List your accommodation" %>
+          <div>
+            <fieldset>
+              <%= f.label :location %>:
+              <%= f.text_field :location %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :start_date %>:
+              <%= f.text_field :start_date %><br />
+           </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <%= f.label :end_date %>:
+              <%= f.text_field :end_date %><br />
+           </fieldset>
+          </div>
+          <%= f.submit "Create your accommodation" %>
         <% end %>
       </div>
     </div>

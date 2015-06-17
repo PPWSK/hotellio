@@ -14,11 +14,16 @@ class AccommodationsController < ApplicationController
     else
       @accommodations = Accommodation.all
       @search = Search.new
+        @markers = Gmaps4rails.build_markers(@flats) do |accommodation, marker|
+        marker.lat accommodation.latitude
+        marker.lng accommodation.longitude
+      end
     end
   end
 
   def show
     @accommodation = Accommodation.find(params[:id])
+    @accommodation_coordinates = { lat: @accommodation.lat, lng: @accommodation.lng }
   end
 
   def new
@@ -37,7 +42,7 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodation_params
-    params.require(:accommodation).permit(:title, :description, :price, :type, :guest_number)
+    params.require(:accommodation).permit(:title, :description, :price, :type, :guest_number, :location, :latitude, :longitude, :start_date, :end_date)
   end
 
 end

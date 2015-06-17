@@ -4,9 +4,14 @@ class Accommodation < ActiveRecord::Base
   has_many :pictures, dependent: :destroy
 
   validates :title, :description, :price, :type, :guest_number, presence: true
+  validates :location, :latitude, :longitude, presence: true
+  validates :start_date, :end_date, presence: true
+  # validates uniqueness latitude longitude TO DO
   validates :title, uniqueness: true
   validates :type, inclusion: { in: ["entire flat/house", "private room", "shared room"] }
-  geocoded_by :address
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
+
   # todo validates :pictures, presence: true number?
 
   def self.search(search_query)
