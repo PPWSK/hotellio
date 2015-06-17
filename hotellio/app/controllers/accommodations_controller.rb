@@ -20,6 +20,7 @@ class AccommodationsController < ApplicationController
 
   def show
     @accommodation = Accommodation.find(params[:id])
+    @accommodation_coordinates = { lat: @accommodation.latitude, lng: @accommodation.longitude }
   end
 
   def new
