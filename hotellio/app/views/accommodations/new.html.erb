@@ -3,68 +3,23 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-offset-4 col-sm-4">
-        <%= simple_form_for(@accommodation, html: { class: 'form-horizontal' }) do |f| %>
-          <div>
-            <fieldset>
-              <%= f.label :title %>:
-              <%= f.text_field :title %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :description %>:
-              <%= f.text_field :description %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :price %>:
-              <%= f.text_field :price %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :type %>:
-              <%= f.text_field :type %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :guest_number %>:
-              <%= f.text_field :guest_number %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :location %>:
-              <%= f.text_field :location %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :start_date %>:
-              <%= f.text_field :start_date %><br />
-           </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <%= f.label :end_date %>:
-              <%= f.text_field :end_date %><br />
-           </fieldset>
-          </div>
-          <%= f.submit "Create your accommodation" %>
+
+        <%= simple_form_for(@accommodation, html: { class: 'form-horizontal' }, html: { novalidate: true }) do |f| %>
 
           <%= f.input :title, label: "give it a name" %>
           <%= f.input :description, label: 'add a description' %>
           <%= f.input :price, label: 'add a price' %>
-          <%= f.input :location, id: "user_input_autocomplete_address", label: 'add a location' %>
+          <%= f.input :location, input_html: { id: 'gmaps-input-address' }, label: 'add a location' %>
+
           <%= f.input :type, collection: ["entire flat/house", "private room", "shared room"], label: 'add a type' %>
           <%= f.input :guest_number, label: 'how many people can it host?' %>
           <%= f.submit "List your accommodation" %>
+
+
         <% end %>
 
         <!-- Custom JS code to bind to Autocomplete API -->
-        <script type="text/javascript" src="autocomplete.js"></script>
+
       </div>
     </div>
   </div>
