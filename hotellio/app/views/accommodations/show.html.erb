@@ -5,6 +5,10 @@
   <p><%= image_tag ap.file.url(:thumb) %></p>
 <% end %>
 
+<% if (account_signed_in? && current_account == @accommodation.user.account) %>
+  <%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %>
+<% end %>
+
 <h4>has:</h4>
 
 <ul>

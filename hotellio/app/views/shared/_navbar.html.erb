@@ -30,7 +30,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to edit_user_accommodation_path(current_account.user.id, current_account.user.accommodations.first.id) do %>
+                <%= link_to myrooms_user_accommodations_path(current_account.user.id) do %>
                   <i class="fa fa-home"></i>  <%= t ".profile", default: "Flat" %>
                 <% end %>
               </li>
