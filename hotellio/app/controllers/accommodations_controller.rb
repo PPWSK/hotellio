@@ -50,7 +50,7 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodation_params
-    params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number)
+    params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number, :start_date, :end_date)
   end
 
 end
