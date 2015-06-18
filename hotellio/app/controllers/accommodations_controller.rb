@@ -1,6 +1,7 @@
 class AccommodationsController < ApplicationController
 
-  skip_before_action :authenticate_account!
+  skip_before_action :authenticate_account!, only: [ :show, :index ]
+  before_action :find_user, only: [ :new, :create, :edit, :update ]
 
   def index
     if params[:search_query]
@@ -35,22 +36,50 @@ class AccommodationsController < ApplicationController
   end
 
   def new
+    # raise @user.inspect
     @accommodation = Accommodation.new
   end
 
   def create
     @accommodation = Accommodation.create(accommodation_params)
+    @accommodation.user = @user
       if @accommodation.save
-        redirect_to accommodation_path(@accommodation)
+        redirect_to edit_user_accommodation_path(@user, @accommodation)
       else
         render :new
       end
   end
 
+  def edit
+    @accommodation = Accommodation.find(params[:id])
+  end
+
+  def update
+    @accommodation = Accommodation.find(params[:id])
+    # @accommodation.picture = @accommodation.pictures.build(picture_params)
+    if @accommodation.save
+      redirect_to accommodation_path(@accommodation)
+    else
+      render :new
+    end
+  end
+
   private
 
   def accommodation_params
-    params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number, :start_date, :end_date)
+    params.require(:accommodation).permit(:title, :location, :description, :price, :type, :guest_number, :start_date, :end_date, :picture)
+  end
+
+  def picture_params
+    params.require(:picture).permit(:file)
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
+  end
+
+  def find_picture
+    @picture = Picture.find(params[:picture_id])
   end
 
 end

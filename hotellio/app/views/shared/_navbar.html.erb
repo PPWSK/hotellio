@@ -17,9 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if  account_signed_in? %>
-          <li>
 
-          </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
@@ -32,7 +30,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to accommodations_path do %>
+                <%= link_to edit_user_accommodation_path(current_account.user.id, current_account.user.accommodations.first.id) do %>
                   <i class="fa fa-home"></i>  <%= t ".profile", default: "Flat" %>
                 <% end %>
               </li>
@@ -43,17 +41,22 @@
               </li>
             </ul>
           </li>
+
         <% else %>
+
           <li>
             <%= link_to t(".sign_up", default: "Sign up"), new_account_registration_path %>
           </li>
           <li>
             <%= link_to t(".sign_in", default: "Sign in"), new_account_session_path %>
           </li>
+
         <% end %>
+
         <li>
-          <%= link_to t(".top_call_to_action", default: "Rent your flat"),  new_accommodation_path, class: "btn" %>
+          <%= link_to t(".top_call_to_action", default: "Rent your flat"), (account_signed_in? ? new_user_accommodation_path(current_account.user.id) : new_account_session_path), class: "btn" %>
         </li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
