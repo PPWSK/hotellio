@@ -16,7 +16,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <% if  account_signed_in? %>
+        <% if  account_signed_in? && !current_account.user.nil? %>
 
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
@@ -54,7 +54,7 @@
         <% end %>
 
         <li>
-          <%= link_to t(".top_call_to_action", default: "Rent your flat"), (account_signed_in? ? new_user_accommodation_path(current_account.user.id) : new_account_session_path), class: "btn" %>
+          <%= link_to t(".top_call_to_action", default: "Rent your flat"), ((account_signed_in? && !current_account.user.nil?) ? new_user_accommodation_path(current_account.user.id) : new_account_session_path), class: "btn" %>
         </li>
 
       </ul>
