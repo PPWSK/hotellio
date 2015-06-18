@@ -12,6 +12,8 @@
           <%= f.input :location, input_html: { id: 'gmaps-input-address' }, label: 'add a location' %>
           <%= f.input :type, collection: ["entire flat/house", "private room", "shared room"], label: 'add a type' %>
           <%= f.input :guest_number, label: 'how many people can it host?' %>
+          <%= f.input :start_date, label: 'start date?' %>
+          <%= f.input :end_date, label: 'end date?' %>
           <%= f.submit "List your accommodation" %>
 
 
