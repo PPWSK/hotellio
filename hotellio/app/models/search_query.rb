@@ -11,11 +11,15 @@ class SearchQuery
   validates :location, presence: true
 
   def start_date=(new_date)
-    @start_date = Date.parse(new_date)
+    if new_date.kind_of?(Date)
+      @start_date = Date.parse(new_date)
+    end
   end
 
   def end_date=(new_date)
-    @end_date = Date.parse(new_date)
+    if new_date.kind_of?(Date)
+      @end_date = Date.parse(new_date)
+    end
   end
 
   def with_some_defaults

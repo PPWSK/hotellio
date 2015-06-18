@@ -15,16 +15,18 @@
     </div>
   <% end %>
 
-  <%= f.input :location %>
+  <%= f.input :location, required: true %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.input :number_rooms, required: true %>
+  <%= f.input :number_rooms %>
 
   <%= f.button :submit %>
 <% end %>
 
 
 <h1>List of accommodations</h1>
+
+<!-- do something if count == 0 -->
 
 <% @accommodations.each do |a| %>
 
