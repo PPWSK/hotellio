@@ -2,7 +2,13 @@
 
 <h2><%= @accommodation.title %></h2>
 <% @accommodation.pictures.each do |ap| %>
-  <p><%= image_tag ap.file.url(:thumb) %></p>
+  <p><%= image_tag ap.file.url(:thumb) %>
+
+    <%= simple_form_for([@user, @accommodation, ap], method: :delete) do |f| %>
+    <%= f.button :submit, :value => "delete" %>
+    <% end %>
+
+  </p>
 <% end %>
 
 <h4>has:</h4>
@@ -15,6 +21,8 @@
 <li><%= @accommodation.guest_number %></li>
 
 </ul><br>
+
+<%= render partial: 'pictures/new', locals: { accommodation: @accommodation, user: @user } %>
 
 <div id="map" style="width: 100%; height: 150px;"></div>
 
