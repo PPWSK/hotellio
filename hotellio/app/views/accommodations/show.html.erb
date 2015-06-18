@@ -44,3 +44,25 @@
 <li><% ar.rating.times do |x| %>*<% end %> <%= ar.description %></li>
 <% end %>
 </ul>
+
+<!-- marc -->
+
+<div class="outer-list-of-accommodations">
+ <div class="list-of-accommodations">
+   <div class="row">
+     <div class="col-sm-12 row-space-2 col-md-6">
+       <div class = "accommodation-image">
+       <% @accommodation.pictures.each do |pic| %>
+         <p><%= image_tag pic.file.url(:original) %></p>
+         <% end %>
+
+       <div class = "accommodation-panel">
+         <h2><%= @accommodation.title %></h2>
+         <h3><%= @accommodation.description %></h3>
+         <h3><%= @accommodation.price %> euros bitch</h3>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
