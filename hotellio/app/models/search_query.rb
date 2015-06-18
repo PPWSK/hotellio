@@ -6,7 +6,6 @@ class SearchQuery
   attr_reader :end_date
   attr_accessor :number_rooms
 
-  validates :number_rooms, numericality: true, #allow_nil: true
   #validates :number_rooms, presence: true
   validates :location, presence: true
 
