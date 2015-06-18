@@ -1,0 +1,7 @@
+<h3>My rooms:</h3>
+
+<% @accommodations.each do |a| %>
+
+  <%= link_to a.title + " (" + a.guest_number.to_s + ")", edit_user_accommodation_path(current_account.user.id, a) %><br>
+
+<% end %>

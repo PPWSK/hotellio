@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [ :index, :destroy ] do
     resources :accommodations, only: [:new, :create, :edit, :update, :destroy ] do
+      get 'myrooms', on: :collection
       resources :pictures, only: [:new, :create, :destroy]
     end
   end

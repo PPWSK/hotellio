@@ -64,6 +64,10 @@ class AccommodationsController < ApplicationController
     end
   end
 
+  def myrooms
+    @accommodations = Accommodation.where(user_id: params[:user_id])
+  end
+
   private
 
   def accommodation_params
