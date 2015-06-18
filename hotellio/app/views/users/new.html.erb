@@ -8,7 +8,7 @@
           <%= f.input :first_name, label: "name" %>
           <%= f.input :last_name, label: 'last_name' %>
           <%= f.input :birthdate, label: 'birthdate' %>
-          <%= f.input :gender, label: 'gender' %>
+          <%= f.input :gender, collection: ["female", "male", "other"], label: 'gender' %>
           <%= f.input :description, label: 'description' %>
           <%= f.input :phone_number, label: 'phone number' %>
           <%= f.submit "submit" %>
