@@ -2,6 +2,7 @@ class Accommodation < ActiveRecord::Base
   self.inheritance_column = nil
   has_many :reviews, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :bookings
   belongs_to :user
 
   validates :title, :location, :description, :price, :type, :guest_number, presence: true

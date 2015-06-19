@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get 'myrooms', on: :collection
       resources :pictures, only: [:new, :create, :destroy]
     end
+    resources :bookings, only: [ :new, :create, :destroy, :show ] do
+      get 'mybookings', on: :collection
+    end
   end
 
   # namespace :account do
