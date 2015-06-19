@@ -1,0 +1,8 @@
+<%= simple_form_for [@user, @accommodation, @booking] do |f| %>
+  <%= f.error_notification %>
+  <h2>book <%= @accommodation.title %> ?</h2>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :number_of_guests %>
+  <%= f.button :submit %>
+<% end %>

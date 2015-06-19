@@ -1,0 +1,10 @@
+<h3>My bookings:</h3>
+
+<% @bookings.each do |b| %>
+
+  <p>Congratulations!<br>You've booked <%= link_to b.accommodation.title, accommodation_path(b.accommodation) %></p>
+  <p>From <%= b.start_date %> to <%= b.end_date %></p>
+  <p>You can still cancel the booking</p>
+  <p>
+
+<% end %>
