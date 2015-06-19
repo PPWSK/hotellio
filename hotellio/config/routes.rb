@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :accommodations, only: [:new, :create, :edit, :update, :destroy ] do
       get 'myrooms', on: :collection
       resources :pictures, only: [ :new, :create, :destroy ]
-      resources :availability, only: [ :new, :create, :destroy ]
+      resources :availabilities, only: [ :new, :create, :destroy ]
     end
     resources :accommodations, only: [:show] do
       resources :bookings, only: [ :new, :create, :destroy ]

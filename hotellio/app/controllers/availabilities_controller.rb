@@ -1,4 +1,4 @@
-class AvailabilityController < ApplicationController
+class AvailabilitiesController < ApplicationController
 
   before_action :find_accommodation, only: [ :new, :create, :destroy ]
 

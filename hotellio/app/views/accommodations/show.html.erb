@@ -24,7 +24,7 @@
 <li><%= @accommodation.type %></li>
 <li><%= @accommodation.guest_number %></li>
 
-<% @accommodation.availabilitys.each do |aa| %>
+<% @accommodation.availabilities.each do |aa| %>
   <li>Available from <%= aa.start_date.to_s %>
     to <%= aa.end_date.to_s %>
     <% if (account_signed_in? && current_account != @accommodation.user.account) %>

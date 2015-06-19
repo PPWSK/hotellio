@@ -15,7 +15,7 @@
 
 <!-- AVAILABLE DATES SECTION -->
 
-<% @accommodation.availabilitys.each do |aa| %>
+<% @accommodation.availabilities.each do |aa| %>
   <p>Available from <%= aa.start_date.to_s %>
     to <%= aa.end_date.to_s %>
     <%= simple_form_for([@user, @accommodation, aa], method: :delete) do |f| %>
@@ -38,11 +38,11 @@
 
 </ul><br>
 
-<!-- INPUT SECTION: PICTURES, AVAILABILITYS -->
+<!-- INPUT SECTION: PICTURES, AVAILABILITIES -->
 
 <%= render partial: 'pictures/new', locals: { accommodation: @accommodation, user: @user } %>
 
-<%= render partial: 'availability/new', locals: { accommodation: @accommodation, user: @user } %>
+<%= render partial: 'availabilities/new', locals: { accommodation: @accommodation, user: @user } %>
 
 <!-- MAP SECTION -->
 
