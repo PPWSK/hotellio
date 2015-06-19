@@ -1,0 +1,4 @@
+  <div class="col-md-12">
+  <%= link_to accom.title + " (" + accom.guest_number.to_s + ")", accommodation_path(accom), class: "acc-title" %><br>
+    <%= render partial: "pictures", locals: { pictures: accom.pictures } %>
+  </div>

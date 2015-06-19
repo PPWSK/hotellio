@@ -1,24 +1,52 @@
 <%= link_to "back", accommodations_path %><br><br>
 
-<h2><%= @accommodation.title %></h2>
-<% @accommodation.pictures.each do |ap| %>
-  <p><%= image_tag ap.file.url(:thumb) %></p>
-<% end %>
 
-<% if (account_signed_in? && current_account == @accommodation.user.account) %>
+<div class="container">
+  <div class='row'>
+  <h2><%= @accommodation.title.upcase %></h2>
+  <br>
+  <br>
+
+  <% @accommodation.pictures.each do |ap| %>
+  <%= image_tag ap.file.url(:original), class: 'full-width' %>
+  <% end %>
+  <br>
+  <br>
+  <% if (account_signed_in? && current_account == @accommodation.user.account) %>
   <%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %>
-<% end %>
+  <% end %>
+  <br>
+  </div>
+</div>
 
-<h4>has:</h4>
 
 <ul>
+<div id= "container">
+  <div class="card">
+    <div id="description">
+    <h2> Description: </h2><br>
+    <p><%= @accommodation.description %></p>
+  </div>
+  <div id="price">
+    <h3> Price/day: </h3>
+    <p><%= @accommodation.price %><strong> $$$ bro </strong></p>
+  </div>
+<br>
+<div id="type">
+<h3> What's that bitte?: </h3>
+<p><%= @accommodation.type %></p>
+</div>
+<br>
+<h3> Guests capacity: </h3>
+<p><%= @accommodation.guest_number %></p>
 
-<li><%= @accommodation.description %></li>
-<li><%= @accommodation.price %></li>
-<li><%= @accommodation.type %></li>
-<li><%= @accommodation.guest_number %></li>
-<li><%= @accommodation.start_date%></li>
-<li><%= @accommodation.end_date %></li>
+<h3>reviews:</h3>
+<ul><% @accommodation.reviews.each do |ar| %>
+<li><% ar.rating.times do |x| %>*<% end %> <%= ar.description %></li>
+<% end %>
+</ul>
+</div>
+
 
 </ul><br>
 
@@ -37,32 +65,4 @@
   <% end %>
 <% end %>
 
-<h4>reviews:</h4>
-
-<ul>
-<% @accommodation.reviews.each do |ar| %>
-<li><% ar.rating.times do |x| %>*<% end %> <%= ar.description %></li>
-<% end %>
-</ul>
-
 <!-- marc -->
-
-<div class="outer-list-of-accommodations">
- <div class="list-of-accommodations">
-   <div class="row">
-     <div class="col-sm-12 row-space-2 col-md-6">
-       <div class = "accommodation-image">
-       <% @accommodation.pictures.each do |pic| %>
-         <p><%= image_tag pic.file.url(:original) %></p>
-         <% end %>
-
-       <div class = "accommodation-panel">
-         <h2><%= @accommodation.title %></h2>
-         <h3><%= @accommodation.description %></h3>
-         <h3><%= @accommodation.price %> euros bitch</h3>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
-</div>

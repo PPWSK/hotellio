@@ -1,3 +1,12 @@
-<% pictures.each do |pic| %>
-  <p><%= image_tag pic.file.url(:medium) %></p>
-<% end %>
+<% pictures = pictures.to_a %>
+<div class="row acc-pictures">
+  <div class="col-md-8">
+    <%= image_tag pictures.shift.file.url(:medium), class: "cover-image" %>
+  </div>
+
+  <div class="col-md-4">
+    <% pictures.each do |pic| %>
+      <%= image_tag pic.file.url(:medium), class: "other-images" %><br>
+    <% end %>
+  </div>
+</div>

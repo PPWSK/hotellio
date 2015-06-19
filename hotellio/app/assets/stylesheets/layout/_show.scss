@@ -1,0 +1,33 @@
+.card{
+background: white;
+text-align: left;
+padding: 30px;
+margin-bottom: 20px;
+border-radius: 4px;
+box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.full-width{
+width:30%;
+}
+
+#description h2{
+  font-family: 'Open sans';
+  font-size:40px;
+  font-weight: 100;
+  color:$otellio;
+  text-align:left;
+}
+
+h3{
+  font-family: 'Open sans';
+  font-size: 20px;
+  font-weight: 130;
+  color:dark-grey;
+}
+
+h2 {
+  font-family: 'Open sans';
+  font-size:40px;
+  text-align:center;
+}
