@@ -1,6 +1,24 @@
 <%= link_to "back", accommodations_path %><br><br>
 
 <h2><%= @accommodation.title %></h2>
+<!-- MAP SECTION -->
+
+<div id="map" style="width: 100%; height: 200px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);      });
+    })
+  <% end %>
+<% end %>
+
+<br>
 
 <!-- PICTURES SECTION -->
 
@@ -44,22 +62,6 @@
 
 <%= render partial: 'availabilities/new', locals: { accommodation: @accommodation, user: @user } %>
 
-<!-- MAP SECTION -->
-
-<div id="map" style="width: 100%; height: 150px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      });
-    })
-  <% end %>
-<% end %>
 
 <h4>reviews:</h4>
 

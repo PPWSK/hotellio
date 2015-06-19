@@ -1,32 +1,70 @@
 <div id="container">
   <div class="quick-profile">
+    <h2><%= @user.first_name %>'s profile:</h2>
     <p>name: <%= @user.first_name %> <%= @user.last_name %></p>
     <p>birthday: <%= @user.birthdate %></p>
     <p>gender: <%= @user.gender %></p>
     <p>description: <%= @user.description %></p>
     <p>phone-number: <%= @user.phone_number %></p>
     <p>e-mail: <%= @user.account.email %></p>
+    <% if @user.picture.present? %>
+    <p><%= image_tag @user.picture.url(:medium) %></p>
+    <% elsif current_account.user.id == @user.id %>
+
+      <div id="container">
+        <div class="my-profile-picture">
+          <p>
+          <h3>Add a picture:</h3>
+            <%= simple_form_for(@user, method: :put, html: { multipart: true }) do |f| %>
+               <%= f.error_notification %>
+               <p>
+                 <%= f.label :picture %>
+                 <%= f.file_field :picture %>
+               </p>
+
+               <%= f.button :submit, :value => "update"  %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
 
+<% if current_account.user.id == @user.id %>
+
 <div id="container">
   <div class="list-accommodations">
-    <h2>List of accomodations:</h2>
+    <h3><%= @user.first_name %>'s accomodations:</h3>
     <p>
       <% @user.accommodations.each do |accommodation| %>
-        <ul>
-          <li> <%= accommodation.title %> </li>
-          <li> <%= accommodation.description %> </li>
-          <li> <%= accommodation.price %> </li>
-          <li> <%= accommodation.type %> </li>
-          <li> <%= accommodation.guest_number %> </li>
-        </ul>
+        <div class="each-accommodation">
+          <table>
+            <tr>
+              <td> <%= accommodation.title %> </td>
+            </tr>
+            <tr>
+              <td> description: <%= accommodation.description %> </td>
+            </tr>
+            <tr>
+              <td> price: <%= accommodation.price %> </td>
+            </tr>
+            <tr>
+              <td> accommodation type: <%= accommodation.type %> </td>
+            </tr>
+            <tr>
+              <td>number of guests: <%= accommodation.guest_number %> </td>
+            </tr>
+          </table>
         <br>
         <br>
+      </div>
       <% end %>
     </p>
   </div>
 </div>
 
+<% end %>
 
 

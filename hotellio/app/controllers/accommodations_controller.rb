@@ -52,6 +52,12 @@ class AccommodationsController < ApplicationController
 
   def edit
     @accommodation = Accommodation.find(params[:id])
+    @accommodation_coordinates = { lat: @accommodation.latitude, lng: @accommodation.longitude }
+
+    @markers = Gmaps4rails.build_markers(@accommodation) do |acco, marker|
+      marker.lat acco.latitude
+      marker.lng acco.longitude
+    end
   end
 
   def update
