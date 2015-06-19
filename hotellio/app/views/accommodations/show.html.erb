@@ -5,13 +5,15 @@
   <p><%= image_tag ap.file.url(:thumb) %></p>
 <% end %>
 
-<% if (account_signed_in? && current_account == @accommodation.user.account) %>
-  <p><%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %></p>
-<% elsif account_signed_in? %>
-  <p><%= link_to "book the room", new_user_accommodation_booking_path(current_account.user.id, @accommodation ) %></p>
-<% else %>
-  <p>Log in to book the room</p>
-<% end %>
+<h3>
+  <% if (account_signed_in? && current_account == @accommodation.user.account) %>
+    <%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %>
+  <% elsif account_signed_in? %>
+    <%= link_to "book the room", new_user_accommodation_booking_path(current_account.user.id, @accommodation ) %>
+  <% else %>
+    Log in to book the room
+  <% end %>
+</h3>
 
 <h4>has:</h4>
 
@@ -21,6 +23,21 @@
 <li><%= @accommodation.price %></li>
 <li><%= @accommodation.type %></li>
 <li><%= @accommodation.guest_number %></li>
+
+<% @accommodation.availabilities.each do |aa| %>
+  <li>Available from <%= aa.start_date.to_s %>
+    to <%= aa.end_date.to_s %>
+    <% if (account_signed_in? && current_account != @accommodation.user.account) %>
+
+      <%= link_to new_user_accommodation_booking_path(current_account.user.id, aa) do %>
+          <p>Book now</p>
+      <% end %>
+
+    <% end %>
+  </li>
+<% end %>
+
+
 <li><%= @accommodation.start_date%></li>
 <li><%= @accommodation.end_date %></li>
 
