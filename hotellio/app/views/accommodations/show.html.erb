@@ -1,8 +1,26 @@
 <%= link_to "back", accommodations_path %><br><br>
 
 <h2><%= @accommodation.title %></h2>
+<div id="map" style="width: 100%; height: 200px;"></div>
+
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).on('ready', function() {
+          handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function(){
+            markers = handler.addMarkers(<%= raw @markers.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(12);
+
+          });
+        })
+
+      <% end %>
+    <% end %>
+<br>
 <% @accommodation.pictures.each do |ap| %>
-  <p><%= image_tag ap.file.url(:thumb) %></p>
+  <p><%= image_tag ap.file.url(:medium) %></p>
 <% end %>
 
 <h3>
@@ -38,25 +56,7 @@
 <% end %>
 
 
-<li><%= @accommodation.start_date%></li>
-<li><%= @accommodation.end_date %></li>
-
 </ul><br>
-
-<div id="map" style="width: 100%; height: 150px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      });
-    })
-  <% end %>
-<% end %>
 
 <h4>reviews:</h4>
 
@@ -73,14 +73,10 @@
    <div class="row">
      <div class="col-sm-12 row-space-2 col-md-6">
        <div class = "accommodation-image">
-       <% @accommodation.pictures.each do |pic| %>
-         <p><%= image_tag pic.file.url(:original) %></p>
-         <% end %>
+
 
        <div class = "accommodation-panel">
-         <h2><%= @accommodation.title %></h2>
-         <h3><%= @accommodation.description %></h3>
-         <h3><%= @accommodation.price %> euros bitch</h3>
+
          </div>
        </div>
      </div>

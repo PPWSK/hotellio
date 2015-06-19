@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit]
+  before_action :find_user, only: [:show, :edit, :update, :myprofile]
   def new
     @user = User.new
   end
@@ -22,11 +22,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update!(user_params)
       redirect_to user_path(@user)
     else
       render :edit
     end
+  end
+
+  def myprofile
   end
 
   def user_params

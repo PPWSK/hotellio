@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :bookings, only: [ :new, :create, :destroy ]
     end
     resources :bookings, only: [ :show, :index ]
-    get 'myprofile', on: :member
   end
 
   # namespace :account do
