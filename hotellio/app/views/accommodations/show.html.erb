@@ -6,7 +6,11 @@
 <% end %>
 
 <% if (account_signed_in? && current_account == @accommodation.user.account) %>
-  <%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %>
+  <p><%= link_to "edit your room", edit_user_accommodation_path(current_account.user.id, @accommodation) %></p>
+<% elsif account_signed_in? %>
+  <p><%= link_to "book the room", new_user_accommodation_booking_path(current_account.user.id, @accommodation ) %></p>
+<% else %>
+  <p>Log in to book the room</p>
 <% end %>
 
 <h4>has:</h4>
