@@ -21,6 +21,7 @@
 //= require gmaps-auto-complete
 
 //= require gmaps
+//= require search_box
 
 
 //= require_tree .
