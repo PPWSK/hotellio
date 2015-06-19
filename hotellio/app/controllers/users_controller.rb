@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       @user = User.create(user_params)
       @user.account = current_account
       if @user.save
-        redirect_to accommodations_path
+        redirect_to user_path(@user)
       else
         render :new
       end
